@@ -7,6 +7,11 @@ class Admin
     # GET /products.json
     def index
       @products = Product.all
+      if(params.has_key?(:category_id))
+        @products = Product.where({category_id: params['category_id']})
+      else
+        @products = Product.all
+      end
     end
 
     # GET /products/1

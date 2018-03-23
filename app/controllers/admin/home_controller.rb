@@ -2,6 +2,9 @@ class Admin
   class HomeController < ApplicationController
     before_action :valid_admin, :authenticate_user!
 
-    def index; end
+    def index
+      @categories = Category.all 
+      @products = Product.all
+    end
   end
 end
